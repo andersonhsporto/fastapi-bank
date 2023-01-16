@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app.models.models import Account
+from app.models import Account
 from app.schemas import AccountSchema
 
 
