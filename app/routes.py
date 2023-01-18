@@ -20,7 +20,7 @@ def get_db():
 @router.get("/accounts")
 async def get_accounts(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     _account = crud.get_account(db, skip, limit)
-    return Response(status="OK", code=200, message="Success", data=_account)
+    return Response(status="OK", code=200, message="Success", result=_account)
 
 
 @router.post("/accounts")

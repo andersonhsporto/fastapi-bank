@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 # DATABASE_URL = "mariadb+mariadbconnector://mariadb:mariadb@localhost:3306/mariadb"
 DATABASE_URL = "mysql+pymysql://mariadb:secret@127.0.0.1:3306/mariadb"
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, encoding="utf-8", echo=True)
 
 with open("./resources/data.sql") as file:
     sql_raw = file.read()

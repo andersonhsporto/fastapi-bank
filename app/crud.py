@@ -5,7 +5,7 @@ from app.schemas import AccountSchema
 
 
 def get_account(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(Account).offset(skip).limit(limit).all()
+    return db.query(Account).all()
 
 
 def get_book_by_id(db: Session, book_id: int):
