@@ -35,4 +35,3 @@ def update_account(db: Session, account: Account):
     db.commit()
     db.refresh(_account)
     return _account
-

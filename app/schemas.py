@@ -1,4 +1,5 @@
-from typing import List, Optional, Generic, TypeVar
+from typing import Optional, Generic, TypeVar
+
 from pydantic import BaseModel, Field
 from pydantic.generics import GenericModel
 
@@ -26,5 +27,3 @@ class Response(GenericModel, Generic[T]):
     status: str
     message: str
     result: Optional[T]
-
-
