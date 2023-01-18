@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, DateTime, Float
+from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey
+from sqlalchemy.orm import relationship
 
 from app.config import Base
 
@@ -8,6 +9,7 @@ class Account(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50))
+    transfer = relationship('Transfer')
 
 
 class Transfer(Base):
@@ -18,3 +20,5 @@ class Transfer(Base):
     value = Column(Float)
     type = Column(String(50))
     operator_name = Column(String(50))
+    account_id = Column(Integer, ForeignKey('account.id'))
+    account = relationship('Account')
