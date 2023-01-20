@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session
+from starlette.responses import JSONResponse
 
 from app.api import crud
 from app.database.config import SessionLocal
