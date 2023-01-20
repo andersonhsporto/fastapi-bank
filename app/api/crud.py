@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
 
-from app.models.models import Account
+from app.models.models import Account, Transfer
 from app.schema.schemas import AccountSchema
 
 
 def get_account(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(Account).all()
+    return db.query(Account).offset(skip).limit(limit).all()
 
 
 def get_book_by_id(db: Session, book_id: int):
@@ -35,3 +35,7 @@ def update_account(db: Session, account: Account):
     db.commit()
     db.refresh(_account)
     return _account
+
+
+def get_transfers(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(Transfer).offset(skip).limit(limit).all()

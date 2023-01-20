@@ -27,3 +27,9 @@ async def get_accounts(skip: int = 0, limit: int = 100, db: Session = Depends(ge
 async def create_account(request: RequestAccount, db: Session = Depends(get_db)):
     _account = crud.create_account(db, account=request.parameter)
     return Response(status="OK", code=200, message="Success", data=_account)
+
+
+@router.get("/transfers")
+async def get_transfers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    _transfer = crud.get_transfers(db, skip, limit)
+    return Response(status="OK", code=200, message="Success", result=_transfer)
