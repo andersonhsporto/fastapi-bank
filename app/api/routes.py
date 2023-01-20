@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from fastapi import Depends
+from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse
 
@@ -35,7 +36,8 @@ async def get_account_by_id(
         db: Session = Depends(get_db)
 ):
     _account = crud.get_account(db, id, page, size, initialDate, finalDate, operatorName)
-    return Response(status="OK", code=200, message="Success", result=_account)
+    _json_item = jsonable_encoder(_account)
+    return JSONResponse(content=_json_item)
 
 
 @router.post("/accounts")
