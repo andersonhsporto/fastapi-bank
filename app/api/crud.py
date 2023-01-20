@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from app.models import Account
-from app.schemas import AccountSchema
+from app.models.models import Account
+from app.schema.schemas import AccountSchema
 
 
 def get_account(db: Session, skip: int = 0, limit: int = 100):

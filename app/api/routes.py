@@ -2,9 +2,9 @@ from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session
 
-from app import crud
-from app.config import SessionLocal
-from app.schemas import Response, RequestAccount
+from app.api import crud
+from app.database.config import SessionLocal
+from app.schema.schemas import Response, RequestAccount
 
 router = APIRouter()
 
